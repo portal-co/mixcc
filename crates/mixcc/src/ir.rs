@@ -1,3 +1,5 @@
+use core::cell::OnceCell;
+
 use alloc::{collections::btree_set::BTreeSet, string::String, vec::Vec};
 
 use crate::attrs::MixCCAttribute;
@@ -10,6 +12,7 @@ macro_rules! id {
 id!(FunctionId);
 id!(BlockId);
 id!(ValueId);
+id!(SlotId);
 pub struct Function {
     pub name: String,
     pub attrs: BTreeSet<MixCCAttribute>,
@@ -19,9 +22,13 @@ pub struct CompilationUnit {
     pub functions: Vec<Function>,
 }
 pub struct Body {
-    pub values: Vec<(Value, Option<usize>)>,
+    pub values: Vec<(Value, OnceCell<SlotId>)>,
     pub blocks: Vec<Block>,
     pub entry: BlockId,
+    pub slots: OnceCell<Vec<Slot>>
+}
+pub struct Slot{
+    pub all_values: BTreeSet<ValueId>,
 }
 pub enum Value {
     Param { block: BlockId, index: usize },
