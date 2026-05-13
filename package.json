@@ -1,0 +1,9 @@
+{
+  "description": "Universal, decently fast, C ompiler (in Rust)",
+  "devDependencies": {
+    "zshy": "^0.7.0"
+  },
+  "name": "@portal-solutions/mixcc",
+  "type": "module",
+  "workspaces": []
+}
