@@ -3,6 +3,7 @@ use core::cell::OnceCell;
 use alloc::{collections::btree_set::BTreeSet, string::String, vec::Vec};
 
 use crate::attrs::MixCCAttribute;
+#[macro_export]
 macro_rules! id {
     ($a:ident) => {
         #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Debug, Hash)]
