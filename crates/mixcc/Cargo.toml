@@ -1,0 +1,8 @@
+[package]
+name = "mixcc"
+edition = "2024"
+version.workspace = true
+description.workspace = true
+
+[dependencies]
+cgrammar = { workspace = true }
